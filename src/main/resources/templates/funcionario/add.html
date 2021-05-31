@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="htpp://thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" th:href="@{/img/logo.png}" type="image/png" />
+  <title>Tao</title>
+  <!--CSS-->
+  <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/fontawesome-free-5.15.3/css/all.css}" />
+  <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+
+<body>
+  <!--NAVBAR-->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item navbar-brand">
+        <img th:src="@{/img/icon.png}" alt="" width="30" height="24" />
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" th:ref="@{../index}">
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/funcionario/list}">
+          Gerenciamento de Funcionários
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/Cargo/list}"> Cargos </a>
+      </li>
+    </ul>
+  </nav>
+  <!--CONTEÚDO-->
+  <div class="container container-funcionario-header container-form">
+    <h2>Funcionários</h2>
+  </div>
+  <!--FORM-->
+  <div class="container container-form container-body-funcionario">
+    <div th:if="${erro}" class="alert alert-danger">
+      <span th:text="${erroMsg}"></span>
+    </div>
+    <form th:action="@{/funcionario/save}" th:object="${funcionario}" method="post">
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="floatingInputId" placeholder="Código" th:field="*{id}" disabled />
+        <label for="floatingInputId">Código</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputNome" placeholder="Nome" th:field="*{nome}" required />
+        <label for="floatingInputNome">Nome</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputEmail" placeholder="E-mail" th:field="*{email}"
+          required />
+        <label for="floatingInputEmail">E-mail</label>
+      </div>
+      <div class="row">
+        <div class="col">
+          <a th:href="@{/funcionario/list}" class="btn btn-form">
+            <i class="fa fa-backspace">Voltar</i>
+          </a>
+        </div>
+        <div class="col">
+          <button class="btn btn-form" type="submit">
+            <i class="fa fa-salve">Salvar</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!--JAVASCRIPT-->
+  <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+  <script th:src="@{/js/popper.min.js}"></script>
+  <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

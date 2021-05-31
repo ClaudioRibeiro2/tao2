@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--TH:SRC é importante.-->
+<html lang="pt-br" xmlns:th="htpp://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{/img/icon.png}" type="image/png">
+    <title>Tao</title>
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/bootstrap-5.0.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/fontawesome-free-5.15.3/css/all.css}">
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item navbar-brand">
+                <img th:src="@{/img/icon.png}" alt="img não carregou" width="30" height="24" />
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{/}">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/funcionario/list}">
+                    Gerenciamento de Funcionários
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/Cargo/list}">
+                    Cargos
+                </a>
+        </ul>
+    </nav>
+    <!--MENU-->
+    <div class="card mx-auto">
+        <div class="card-body">
+            <h5 class="card-title">
+                SOBRE NÓS:
+            </h5>
+
+            <p class="card-text text-start">
+                Nós, Tao, somos uma clinica de MTC (Medicina Tradicional Chinesa), nosso foco é em fazer procedimentos
+                de Acupuntura e Fitoterapia.
+            </p>
+        </div>
+    </div>
+
+    <!--CONTEÚDO-->
+    <div class="main-container"></div>
+    <!--RODAPÉ-->
+    <ul class="list-group list-group-horizontal rounded">
+        <div class="mx-auto list-group-horizontal" style="flex-direction: row; display: flex">
+            <li class="list-group-item border border-primary rounded">
+                Telefone Comercial: (48) 95132-2512
+            </li>
+            <li class="list-group-item border border-primary rounded">
+                Email Comercial: contact_email@tao.com.br
+            </li>
+        </div>
+    </ul>
+    <!--JAVASCRIPT-->
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/bootstrap-5.0.0/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
